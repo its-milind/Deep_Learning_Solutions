@@ -13,5 +13,5 @@ def gradient_checkpoint(
     h = out if out>0 else 0
     y_hat = w2*h + b2
     L = 0.5 * ( (y_hat-y)**2 )
-    dL_dW1 = (y_hat-y) * w2 * ( 1 if h else 0) * x
+    dL_dW1 = (y_hat-y) * w2 * ( 1 if out>0 else 0) * x
     return ( h, y_hat, L, dL_dW1)
