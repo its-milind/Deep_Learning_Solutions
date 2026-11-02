@@ -17,6 +17,6 @@ def leaky_relu_dead_unit_check(
     """
     # TODO: pick the branch with x > 0, not x >= 0.\
     activations = np.where(x>0, x, alpha*x)
-    derivatives = np.where(x>0, 1, alpha)
+    derivatives = np.where(x>0, 1.0, alpha)
     
     return ([activations, derivatives])
