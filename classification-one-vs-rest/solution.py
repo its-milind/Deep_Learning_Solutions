@@ -19,8 +19,8 @@ def train_one_vs_rest(
     for k in range(num_classes):
         binary_target = (target == k).astype(input.dtype)
         w_k, b_k = train_logistic_regression(input, binary_target, lr = lr, epochs = epochs)
-        weights[k] = np.squeeze(w_k)
-        bias[k] = np.squeeze(b_k)
+        weights[k] = w_k.flatten()
+        bias[k] = b_k.item()
     return weights, bias
         
     
